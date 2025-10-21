@@ -5,6 +5,12 @@ export const heroData = {
   description:
     "As a front-end developer, I'm focused on building modern web applications with a strong emphasis on performance and maintainability. I have hands-on experience with component-based architecture in React and utility-first styling with Tailwind CSS, allowing me to translate complex designs into high-quality, responsive code.",
 
+  stats: [
+    { number: "2+", label: "Years of Experience" },
+    { number: "10+", label: "Projects Completed" },
+    { number: "10+", label: "Technologies Mastered" },
+  ],
+
   socialLinks: [
     {
       name: "Github",
@@ -13,9 +19,9 @@ export const heroData = {
     },
 
     {
-      name: "LinkedIn",
+      name: "Linkedin",
       url: "https://linkedin.com/in/abishek-manoj-362615289",
-      icon: "LinkedIn",
+      icon: "Linkedin",
     },
 
     {

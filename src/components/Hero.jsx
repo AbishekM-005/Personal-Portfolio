@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Github, Icon, Linkedin, Mail } from "lucide-react";
 
 import { heroData } from "../data/hero";
 
@@ -93,9 +93,76 @@ const Hero = ({ hasAnimated }) => {
                     {currentText}
                     <span className="animate-pulse"></span>
                   </span>
-                  <span className=""></span>
+                  <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 "></span>
                 </span>
               </h2>
+            </div>
+            {/* Description */}
+            <p className="text-base md:text-lg text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed animate-fade-in-up delay-200">
+              {heroData.description}
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-3 justify-center mb-8 animate-fade-in-up delay-300">
+              {heroData.ctaButtons.map((button, index) => (
+                <a
+                  key={index}
+                  href={button.href}
+                  className={`group relative px-5 py-2.5 rounded-lg transition-all duration-300 font-medium text-sm ${
+                    button.variant === "primary"
+                      ? "bg-black text-white shadow-lg hover:shadow-xl  hover:bg-gray-800"
+                      : "border-2 border-black text-black hover:bg-black hover:text-white "
+                  }`}
+                >
+                  {button.variant === "primary" && (
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg opacity-0 group-hover:opacity-100 transition:opacity duration-300 "></div>
+                  )}
+
+                  <span
+                    className={
+                      button.variant === "primary" ? "relative z-10 " : ""
+                    }
+                  >
+                    {button.text}
+                  </span>
+                </a>
+              ))}
+            </div>
+
+            {/* Social Links */}
+            <div className="flex justify-center space-x-6 mb-8 animate-fade-in-up delay-400">
+              {heroData.socialLinks.map((social, index) => {
+                const IconComponent =
+                  social.icon === "Github"
+                    ? Github
+                    : social.icon === "Linkedin"
+                    ? Linkedin
+                    : Mail;
+                return (
+                  <a
+                    key={index}
+                    href={social.url}
+                    className="group p-3  bg-white rounded-full shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-110 hover-translate-y-1"
+                  >
+                    <IconComponent className="w-6 h-6 text-gray-700 group-hover:text-black transition-colors" />
+                  </a>
+                );
+              })}
+            </div>
+
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-6 max-w-2lg mx-auto mb-8 animate-fade-in-up delay-500 bg-slate-50 ">
+              {heroData.stats.map((stat, index) => (
+                <div key={index} className="text-center">
+                  <div className="text-2xl font-bold text-black mb-1 ">
+                    {stat.number}
+                  </div>
+
+                  <div className="text-xs md:text-xl   text-gray-600">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
