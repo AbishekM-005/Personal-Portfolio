@@ -1,19 +1,5 @@
 @import "tailwindcss";
-@theme {
-  /* This is where your mobile styles were breaking! */
-  /* This replaces the 'content' array from tailwind.config.js */
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ];
 
-  /* You can extend your theme here, just like in the old config file */
-  extend: {
-    colors: {
-      'custom-blue': '#243c5a',
-    },
-  }
-}
 /*Custom Animations*/
 
 @keyframes fade-in-up {
@@ -39,10 +25,10 @@
   }
 }
 
-.animation-fade-in {
+.animate-fade-in {
   animation: fade-in-up0.8s ease-in-out;
 }
 
-.animation-float {
+.animate-float {
   animation: float 3s ease-in-out infinite;
 }

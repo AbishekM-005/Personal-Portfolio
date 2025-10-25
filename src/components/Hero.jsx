@@ -53,7 +53,7 @@ const Hero = ({ hasAnimated }) => {
   };
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-gray-50 to-gray-100 pt-20">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-gray-50 to-gray-100 pt-20 ">
       {/*Background Elements*/}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400 to-purple-600 rounded-full opacity-10 blur-3xl animate-pulse"></div>
@@ -62,7 +62,7 @@ const Hero = ({ hasAnimated }) => {
       </div>
       {/* Grid Pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:50px_50px]">
-        <div className="relative z-10 max-w-6xl mx-auto px-6  text-center h-full flex flex-col justify-center ">
+        <div className="relative z-10 max-w-6xl mx-auto px-6 mt-12 text-center h-full flex flex-col justify-center ">
           <div
             className={`transition-all duration-1000 ${
               hasAnimated.hero
@@ -79,7 +79,7 @@ const Hero = ({ hasAnimated }) => {
             </div>
 
             {/* Name */}
-            <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-black via-gray-800 to-gray-600 bg-clip-text text-transparent animate-fade-in-up">
+            <h1 className="text-5xl leading-tight md:text-7xl font-bold mb-4 bg-gradient-to-r from-black via-gray-800 to-gray-600 bg-clip-text text-transparent animate-fade-in-up">
               {heroData.name}
             </h1>
 
@@ -151,7 +151,7 @@ const Hero = ({ hasAnimated }) => {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-6 max-w-2lg mx-auto mb-8 animate-fade-in-up delay-500 bg-slate-50 ">
+            <div className="grid grid-cols-3 gap-6 max-w-2lg mx-auto mb-8 animate-fade-in-up delay-500 ">
               {heroData.stats.map((stat, index) => (
                 <div key={index} className="text-center">
                   <div className="text-2xl font-bold text-black mb-1 ">
@@ -165,8 +165,24 @@ const Hero = ({ hasAnimated }) => {
               ))}
             </div>
           </div>
+          {/* Scroll Indicator */}
+          <div className="animate-bounce">
+            <button
+              onClick={scrollToAbout}
+              className="group flex flex-col items-center text-gray-600 hover:text-black transition-colors cursor-pointer"
+            >
+              <span className="text-sm mb-2 ">Learn More</span>
+              <ArrowDown className="w-6- h-6 group-hover:transform group-hover:translate-y-1 transition-transform" />
+            </button>
+          </div>
         </div>
       </div>
+      {/* Floating Elements */}
+      <div className="absolute top-20 left-10 w-4 h-4 bg-blue-400 rounded-full opacity-60 animate-float "></div>
+      <div className="absolute top-40 right-20 w-6 h-6 bg-purple-400 rounded-full opacity-60 animate-float delay-1000"></div>
+      <div className="absolute bottom-40 left-20 w-3 h-3 bg-green-400 rounded-full opacity-60 animate-float delay-2000"></div>
+
+      <div className="absolute bottom-20 right-10 w-5 h-5 bg-orange-400 rounded-full opacity-60 animate-float delay-3000"></div>
     </section>
   );
 };
